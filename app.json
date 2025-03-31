@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "We Will Succeed Together",
+    "slug": "we-will-succeed-together",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "bundler": "metro",
+      "supportsTablet": true
+    },
+    "android": {
+      "bundler": "metro",
+      "package": "com.mesutbudak.wewillsucceedtogether",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#f5f6fb"
+      },
+      "permissions": []
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.svg"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 300,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b89a0166-ff9a-483a-a291-101364113b6f"
+      }
+    },
+    "owner": "lygian"
+  }
+}
