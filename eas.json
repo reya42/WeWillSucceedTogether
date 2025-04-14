@@ -1,17 +1,24 @@
 {
+    "cli": {
+        "appVersionSource": "remote"
+    },
     "build": {
-      "production": {
-        "android": {
-          "buildType": "app-bundle"
+        "production": {
+            "android": {
+                "buildType": "app-bundle"
+            }
         }
-      }
     },
     "submit": {
-      "production": {
-        "android": {
-          "track": "internal"
+        "production": {
+            "android": {
+                "track": "internal"
+            },
+            "ios": {
+                "appleId": "recepyasli42@gmail.com",
+                "ascAppId": "6744552320",
+                "appleTeamId": "L3RQYBU9QR"
+            }
         }
-      }
     }
 }
-  
