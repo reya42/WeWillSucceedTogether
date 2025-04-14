@@ -30,4 +30,4 @@ workflows:
         script: |
           export RCT_METRO_PORT=8081
           npx expo start &
-          sleep infinity
+          sleep 15m
