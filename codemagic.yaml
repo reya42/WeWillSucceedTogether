@@ -28,16 +28,23 @@ workflows:
       # 3. Launch simulator and test
       - name: Run on iOS Simulator
         script: |
-          # Boot iPhone 15 simulator (Codename for latest iOS)
-          xcrun simctl boot "iPhone 15"
-          
-          # Install the app
+          #!/usr/bin/env bash
+
+          # 1. List available simulators and pick one
+          DEVICE_NAME="iPhone 15 Pro" # Adjust based on `xcrun simctl list devices` output
+          DEVICE_UDID=$(xcrun simctl list devices | grep -B 1 "$DEVICE_NAME" | grep -E -o -i "([0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12})")
+
+          # 2. Boot the simulator
+          xcrun simctl boot "$DEVICE_UDID"
+
+          # 3. Wait for boot to complete
+          sleep 10 # Adjust delay if needed
+
+          # 4. Install and launch
           xcrun simctl install booted ./ios-build/WeWillSucceedTogether.app
-          
-          # Launch using your bundle ID from app.json
           xcrun simctl launch booted com.wewillsucceed.together
-          
-          # Optional: Take screenshot for verification
+
+          # 5. Take screenshot
           xcrun simctl io booted screenshot test-screenshot.png
     # Save artifacts for debugging
     artifacts:
