@@ -22,9 +22,6 @@ interface countryItem {
     subtitleFontSize:number;
     buttonFontSize: number;
     background: any;
-    nameMargin: number;
-    secondNameMargin: number;
-    subtitleMargin: number;
     bgAttribution: string;
     license: string;
     Videos: videoItem[];
@@ -56,7 +53,6 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
                 className="text-primary font-poppins_medium_italic relative z-30 text-center w-[100vw]"
                 style={{
                     fontSize:responsiveSize(country.nameFontSize),
-                    marginTop: responsiveSize(country.nameMargin),
                     textShadowColor: 'rgba(0, 0, 0, 0.75)',
                     textShadowOffset: {width: -1, height: 1},
                     textShadowRadius: 10
@@ -71,7 +67,6 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
                     className="text-primary font-poppins_medium_italic relative z-30 text-center w-[100vw]"
                     style={{
                         fontSize:responsiveSize(country.secondNameFontSize),
-                        marginTop: responsiveSize(country.secondNameMargin),
                         textShadowColor: 'rgba(0, 0, 0, 0.75)',
                         textShadowOffset: {width: -1, height: 1},
                         textShadowRadius: 10
@@ -85,7 +80,6 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
                 className="text-secondary bg-primary font-poppins_medium_italic relative z-10 text-center"
                 style={{
                     fontSize:responsiveSize(country.subtitleFontSize),
-                    marginTop: responsiveSize(country.subtitleMargin),
                     shadowColor: 'rgba(0, 0, 0, 1)',
                     shadowOffset: {width: -1, height: 1},
                     shadowRadius: 10
