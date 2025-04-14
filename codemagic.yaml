@@ -6,21 +6,38 @@ workflows:
     environment:
       vars:
         XCODE_VERSION: 15.0
+        NODE_VERSION: 18  # Match your local Node version
     scripts:
+      - name: Setup environment
+        script: |
+          npm install -g npx
+          npm install -g @react-native-community/cli@11.3.6  # Specific stable version
       - name: Install dependencies
         script: |
           npm install
-          npm install -g @react-native-community/cli
           cd ios && pod install && cd ..
-      - name: Start Metro Bundler
-        script: npm start &
-      - name: List available simulators
-        script: xcrun simctl list devices
-      - name: Launch Simulator
+      - name: Start Metro in background
         script: |
+          npm start &
+          sleep 10  # Give Metro time to start
+      - name: Launch simulator with app
+        script: |
+          # Kill any existing simulator processes
+          killall Simulator || true
+          killall "iOS Simulator" || true
+          
+          # List available devices
+          xcrun simctl list devices
+          
+          # Boot and launch simulator
           xcrun simctl boot "iPhone 15"
           open -a Simulator
-      - name: Build and run on simulator
-        script: |
-          export RCT_METRO_PORT=8081
-          npx react-native run-ios --simulator="iPhone 15"
+          
+          # Wait for simulator to be fully ready
+          sleep 30
+          
+          # Build and run the app
+          RCT_METRO_PORT=8081 npx react-native run-ios --simulator="iPhone 15" --no-packager
+          
+          # Keep the session alive for testing
+          sleep 3000
