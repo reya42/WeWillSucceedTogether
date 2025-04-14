@@ -6,38 +6,27 @@ workflows:
     environment:
       vars:
         XCODE_VERSION: 15.0
-        NODE_VERSION: 18  # Match your local Node version
     scripts:
-      - name: Setup environment
-        script: |
-          npm install -g npx
-          npm install -g @react-native-community/cli@11.3.6  # Specific stable version
       - name: Install dependencies
         script: |
           npm install
-          cd ios && pod install && cd ..
-      - name: Start Metro in background
+          npm install -g expo-cli @react-native-community/cli
+      - name: Prebuild iOS files
+        script: npx expo prebuild --platform ios
+      - name: Install pods
         script: |
-          npm start &
-          sleep 10  # Give Metro time to start
-      - name: Launch simulator with app
+          cd ios
+          pod install
+          cd ..
+      - name: Start Expo dev server
+        script: npx expo start --clear &
+      - name: Launch iOS Simulator
         script: |
-          # Kill any existing simulator processes
-          killall Simulator || true
-          killall "iOS Simulator" || true
-          
-          # List available devices
           xcrun simctl list devices
-          
-          # Boot and launch simulator
           xcrun simctl boot "iPhone 15"
           open -a Simulator
-          
-          # Wait for simulator to be fully ready
-          sleep 30
-          
-          # Build and run the app
-          RCT_METRO_PORT=8081 npx react-native run-ios --simulator="iPhone 15" --no-packager
-          
-          # Keep the session alive for testing
-          sleep 3000
+          sleep 15 # Wait for simulator to fully launch
+      - name: Build and run on simulator
+        script: |
+          export RCT_METRO_PORT=8081
+          npx expo run:ios --simulator="iPhone 15"
