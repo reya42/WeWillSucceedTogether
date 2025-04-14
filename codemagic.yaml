@@ -1,33 +1,40 @@
 workflows:
-  ios-simulator-test:
-    name: iOS Simulator Test
+  expo-ios-workflow:
+    name: Expo iOS Build
     max_build_duration: 120
     instance_type: mac_mini_m2
     environment:
+      groups:
+        - expo_creds # Store EXPO_TOKEN here if needed
       vars:
         XCODE_VERSION: 15.0
+        BUNDLE_ID: "com.reya42.wewillsucceedtogether"
     scripts:
-      - name: Install dependencies
+      - name: Set up environment
         script: |
+          npm install -g expo-cli eas-cli
           npm install
-          npm install -g expo-cli @react-native-community/cli
-      - name: Prebuild iOS files
+      - name: Expo Prebuild
         script: npx expo prebuild --platform ios
-      - name: Install pods
+      - name: Install Pods
         script: |
           cd ios
           pod install
           cd ..
-      - name: Start Expo dev server
-        script: npx expo start --clear &
-      - name: Launch iOS Simulator
+      - name: Launch Simulator
         script: |
-          xcrun simctl list devices
           xcrun simctl boot "iPhone 15"
           open -a Simulator
-          sleep 15 # Wait for simulator to fully launch
-      - name: Build and run on simulator
+          sleep 20
+      - name: Build and Run
         script: |
-          export RCT_METRO_PORT=8081
-          npx expo start &
-          sleep 15m
+          # Start Metro bundler in background
+          npx expo start --dev-client &
+          # Build and install
+          xcodebuild -workspace ios/WeWillSucceedTogether.xcworkspace \
+            -scheme WeWillSucceedTogether \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            build
+          # Install and launch
+          xcrun simctl install booted ios/build/Build/Products/Debug-iphonesimulator/WeWillSucceedTogether.app
+          xcrun simctl launch booted $BUNDLE_ID
