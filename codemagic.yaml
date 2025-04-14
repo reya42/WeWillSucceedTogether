@@ -11,6 +11,9 @@ workflows:
         script: |
           npm install
           npm install -g expo-cli @react-native-community/cli
+      - name: Update dependencies
+        script: |
+          npm update
       - name: Prebuild iOS files
         script: npx expo prebuild --platform ios
       - name: Install pods
@@ -18,15 +21,3 @@ workflows:
           cd ios
           pod install
           cd ..
-      - name: Start Expo dev server
-        script: npx expo start --clear &
-      - name: Launch iOS Simulator
-        script: |
-          xcrun simctl list devices
-          xcrun simctl boot "iPhone 15"
-          open -a Simulator
-          sleep 15 # Wait for simulator to fully launch
-      - name: Build and run on simulator
-        script: |
-          export RCT_METRO_PORT=8081
-          npx expo run:ios --simulator="iPhone 15"
