@@ -20,7 +20,6 @@ workflows:
         script: |
           xcrun simctl boot "iPhone 15"
           open -a Simulator
-          sleep 30 # Give simulator time to fully launch
       - name: Build and run on simulator
         script: |
           export RCT_METRO_PORT=8081
