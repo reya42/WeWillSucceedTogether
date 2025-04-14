@@ -5,10 +5,6 @@ workflows:
       # Required for iOS simulators
       xcode: latest
       node: 18.17.1  # Match your project's Node version
-    # Cache to speed up future builds
-    caching:
-      paths:
-        - node_modules
     scripts:
       # 1. Install dependencies
       - name: Install Expo/EAS CLI
