@@ -1,40 +1,28 @@
 workflows:
-  expo-ios-workflow:
-    name: Expo iOS Build
-    max_build_duration: 120
-    instance_type: mac_mini_m2
+  ios-simulator-test:
+    name: iOS Simulator Test
     environment:
-      groups:
-        - expo_creds # Store EXPO_TOKEN here if needed
-      vars:
-        XCODE_VERSION: 15.0
-        BUNDLE_ID: "com.reya42.wewillsucceedtogether"
+      node: 18.17.1
+      xcode: latest
     scripts:
-      - name: Set up environment
+      - name: Install Dependencies
         script: |
-          npm install -g expo-cli eas-cli
+          npm install -g eas-cli
           npm install
-      - name: Expo Prebuild
-        script: npx expo prebuild --platform ios
-      - name: Install Pods
+      - name: Build for iOS Simulator
         script: |
-          cd ios
-          pod install
-          cd ..
-      - name: Launch Simulator
+          eas build --platform ios --profile preview --non-interactive
+      - name: Test on Simulator
         script: |
+          # Download the built .app (replace URL with your EAS build artifact)
+          curl -L -o app.zip https://url-to-your-eas-build.app.zip
+          unzip app.zip -d ./ios-build
+          
+          # Boot iPhone 15 simulator
           xcrun simctl boot "iPhone 15"
-          open -a Simulator
-          sleep 20
-      - name: Build and Run
-        script: |
-          # Start Metro bundler in background
-          npx expo start --dev-client &
-          # Build and install
-          xcodebuild -workspace ios/WeWillSucceedTogether.xcworkspace \
-            -scheme WeWillSucceedTogether \
-            -destination 'platform=iOS Simulator,name=iPhone 15' \
-            build
+          
           # Install and launch
-          xcrun simctl install booted ios/build/Build/Products/Debug-iphonesimulator/WeWillSucceedTogether.app
-          xcrun simctl launch booted $BUNDLE_ID
+          xcrun simctl install booted ./ios-build/WeWillSucceedTogether.app
+          xcrun simctl launch booted com.wewillsucceed.together
+    artifacts:
+      - ios-build/**/*.app
