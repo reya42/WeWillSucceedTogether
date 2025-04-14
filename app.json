@@ -11,6 +11,7 @@
     "ios": {
         "bundler": "metro",
         "supportsTablet": true,
+        "requireFullScreen": true,
         "bundleIdentifier": "com.wewillsucceed.together",
         "infoPlist": {
             "ITSAppUsesNonExemptEncryption": false
