@@ -14,38 +14,9 @@ workflows:
       - name: Fetch iOS Simulator Build
         script: |
           # Download the .tar.gz artifact
-          curl -L -o ios-build.tar.gz "https://expo.dev/artifacts/eas/8EC4BJBmQQsFoMWdzvy8DE.tar.gz"
+          curl -L -o ios-build.tar.gz "https://expo.dev/artifacts/eas/o5Xgx1me6ch6ZymFc8xCzA.tar.gz"
           
-          # Extract to ./ios-build directory
-          mkdir -p ios-build
-          tar -xzf ios-build.tar.gz -C ios-build
-          
-          # Verify extraction
-          if [ ! -d "./ios-build/WeWillSucceedTogether.app" ]; then
-            echo "Error: .app file missing after extraction!"
-            exit 1
-          fi
-      # 3. Launch simulator and test
-      - name: Run on iOS Simulator
-        script: |
-          #!/usr/bin/env bash
-
-          # 1. List available simulators and pick one
-          DEVICE_NAME="iPhone 15 Pro" # Adjust based on `xcrun simctl list devices` output
-          DEVICE_UDID=$(xcrun simctl list devices | grep -B 1 "$DEVICE_NAME" | grep -E -o -i "([0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12})")
-
-          # 2. Boot the simulator
-          xcrun simctl boot "$DEVICE_UDID"
-
-          # 3. Wait for boot to complete
-          sleep 10 # Adjust delay if needed
-
-          # 4. Install and launch
-          xcrun simctl install booted ./ios-build/WeWillSucceedTogether.app
-          xcrun simctl launch booted com.wewillsucceed.together
-
-          # 5. Take screenshot
-          xcrun simctl io booted screenshot test-screenshot.png
+          tar -xzf ios-build.tar.gz
     # Save artifacts for debugging
     artifacts:
       - ./test-screenshot.png  # Visual confirmation

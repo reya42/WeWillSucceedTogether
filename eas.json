@@ -11,8 +11,12 @@
           }
         },
         "production": {
+            "developmentClient": false, 
             "android": {
                 "buildType": "app-bundle"
+            },
+            "ios": {
+              "simulator": true
             }
         }
     },
