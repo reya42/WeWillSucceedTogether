@@ -61,7 +61,6 @@ const Country = () => {
                     className="text-primary font-poppins_medium_italic relative z-30"
                     style={{
                         fontSize: responsiveSize(country.nameFontSize*multiplier),
-                        marginTop: responsiveSize(country.nameMargin*multiplier),
                         textShadowColor: 'rgba(0, 0, 0, 0.75)',
                         textShadowOffset: {width: -1, height: 1},
                         textShadowRadius: 10
@@ -72,7 +71,6 @@ const Country = () => {
                     className="text-secondary bg-primary font-poppins_medium_italic relative z-10 text-center"
                     style={{
                         fontSize: responsiveSize(country.subtitleFontSize*multiplier),
-                        marginTop: responsiveSize(country.subtitleMargin*multiplier),
                         shadowColor: 'rgba(0, 0, 0, 1)',
                         shadowOffset: {width: -1, height: 1},
                         shadowRadius: 10
