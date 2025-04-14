@@ -1,28 +1,50 @@
 workflows:
   ios-simulator-test:
-    name: iOS Simulator Test
+    name: Install & Test iOS Build
     environment:
-      node: 18.17.1
+      # Required for iOS simulators
       xcode: latest
+      node: 18.17.1  # Match your project's Node version
+    # Cache to speed up future builds
+    caching:
+      paths:
+        - node_modules
     scripts:
-      - name: Install Dependencies
+      # 1. Install dependencies
+      - name: Install Expo/EAS CLI
         script: |
-          npm install -g eas-cli
-          npm install
-      - name: Build for iOS Simulator
+          npm install -g expo-cli eas-cli
+      # 2. Download and extract your EAS build artifact
+      - name: Fetch iOS Simulator Build
         script: |
-          eas build --platform ios --profile preview --non-interactive
-      - name: Test on Simulator
-        script: |
-          # Download the built .app (replace URL with your EAS build artifact)
-          curl -L -o app.zip https://url-to-your-eas-build.app.zip
-          unzip app.zip -d ./ios-build
+          # Download the .tar.gz artifact
+          curl -L -o ios-build.tar.gz "https://expo.dev/artifacts/eas/8EC4BJBmQQsFoMWdzvy8DE.tar.gz"
           
-          # Boot iPhone 15 simulator
+          # Extract to ./ios-build directory
+          mkdir -p ios-build
+          tar -xzf ios-build.tar.gz -C ios-build
+          
+          # Verify extraction
+          if [ ! -d "./ios-build/WeWillSucceedTogether.app" ]; then
+            echo "Error: .app file missing after extraction!"
+            exit 1
+          fi
+      # 3. Launch simulator and test
+      - name: Run on iOS Simulator
+        script: |
+          # Boot iPhone 15 simulator (Codename for latest iOS)
           xcrun simctl boot "iPhone 15"
           
-          # Install and launch
+          # Install the app
           xcrun simctl install booted ./ios-build/WeWillSucceedTogether.app
+          
+          # Launch using your bundle ID from app.json
           xcrun simctl launch booted com.wewillsucceed.together
+          
+          # Optional: Take screenshot for verification
+          xcrun simctl io booted screenshot test-screenshot.png
+    # Save artifacts for debugging
     artifacts:
-      - ios-build/**/*.app
+      - ./test-screenshot.png  # Visual confirmation
+      - ./ios-build/**/*.app   # The installed app bundle
+      - ./ios-build.tar.gz     # Original build artifact
