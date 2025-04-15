@@ -18,8 +18,8 @@ workflows:
           
     # Save artifacts for debugging
     artifacts:
-      - iPadSS/**/*.png         # iPad Screen Shots
-      - iPhone69SS/**/*.png     # iPhone Screen Shots
-      - iPhone65SS/**/*.png     # iPhone Screen Shots
+      - /Users/builder/SS/iphone69/**/*.png
+      - /Users/builder/SS/iphone65/**/*.png
+      - /Users/builder/SS/ipad/**/*.png
       - ./ios-build/**/*.app    # The installed app bundle
       - ./ios-build.tar.gz      # Original build artifact
