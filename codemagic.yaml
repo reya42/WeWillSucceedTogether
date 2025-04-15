@@ -17,9 +17,9 @@ workflows:
           curl -L -o ./ios-build.tar.gz "https://expo.dev/artifacts/eas/7ZmzTyLLxKpYSwq3Y5mxia.tar.gz"
       - name: Verify Screenshot Artifacts Exist
         script: |
-          ls -la /Users/builder/iPhone69SS/
-          ls -la /Users/builder/iPhone65SS/
-          ls -la /Users/builder/iPadSS/
+          ls -la /Users/builder/SS/
+          ls -la /Users/builder/SS/
+          ls -la /Users/builder/SS/
           
     # Save artifacts for debugging
     artifacts:
