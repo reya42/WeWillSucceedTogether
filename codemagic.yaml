@@ -14,7 +14,7 @@ workflows:
       - name: Fetch iOS Simulator Build
         script: |
           # Download the .tar.gz artifact
-          curl -L -o ./ios-build.tar.gz "https://expo.dev/artifacts/eas/o5Xgx1me6ch6ZymFc8xCzA.tar.gz"
+          curl -L -o ./ios-build.tar.gz "https://expo.dev/artifacts/eas/pbFLY9rMgTb6YxgAfZzaxX.tar.gz"
           
     # Save artifacts for debugging
     artifacts:
