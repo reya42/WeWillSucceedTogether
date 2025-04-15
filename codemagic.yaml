@@ -18,6 +18,4 @@ workflows:
           
     # Save artifacts for debugging
     artifacts:
-      - ./test-screenshot.png  # Visual confirmation
-      - ./ios-build/**/*.app   # The installed app bundle
-      - ./ios-build.tar.gz     # Original build artifact
+      - screenshots/**/*.png
