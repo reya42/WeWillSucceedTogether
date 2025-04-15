@@ -67,7 +67,8 @@ const VideoPlayer = () => {
                 
                 <View style={styles.videoContainer}>
                     <YoutubePlayer
-                        height={300}
+                        width={Math.round(responsiveSize(320))}
+                        height={Math.round(responsiveSize(180))}
                         play={true}
                         videoId={videoId}
                         webViewProps={{
