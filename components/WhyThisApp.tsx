@@ -9,7 +9,7 @@ import responsiveSize from '@/constants/responsiveSize'
 function WhyThisApp() {
     return (
         <View 
-            className="landing-page w-[100vw] h-[100vh] bg-secondary pt-[10%] pb-[20%] relative justify-around z-20"
+            className="landing-page w-[100vw] h-[100vh] bg-secondary pt-[10%] pb-[20%] relative justify-around"
             style={{
                 borderTopLeftRadius: responsiveSize(43.63),
                 borderTopRightRadius: responsiveSize(43.63),
@@ -32,25 +32,25 @@ function WhyThisApp() {
                     padding: responsiveSize(15.27),
                 }}
             >
-                <View className="relative" style={{width: Math.round(responsiveSize(124.131945)), height:Math.round(responsiveSize(124.131945))}}>
-                    <View className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]" style={{width: Math.round(responsiveSize(124.131945)), height:Math.round(responsiveSize(124.131945))}}> 
-                        <Star width={Math.round(responsiveSize(124.131945))} height={Math.round(responsiveSize(124.131945))} fill="#070029" className="  "/>
+                <View className="relative" style={{width: Math.round(responsiveSize(100)), height:Math.round(responsiveSize(100))}}>
+                    <View className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]" style={{width: Math.round(responsiveSize(100)), height:Math.round(responsiveSize(100))}}> 
+                        <Star width={Math.round(responsiveSize(100))} height={Math.round(responsiveSize(100))} fill="#070029" className="  "/>
                     </View>
-                    <View className="absolute left-[50%] top-[55%] -translate-x-[50%] -translate-y-[55%]" style={{width: Math.round(responsiveSize(66.8402779)), height:Math.round(responsiveSize(66.8402779))}}>
-                        <PeopleGroup width={Math.round(responsiveSize(66.8402779))} height={Math.round(responsiveSize(66.8402779))} fill="#fff"/>
+                    <View className="absolute left-[50%] top-[55%] -translate-x-[50%] -translate-y-[55%]" style={{width: Math.round(responsiveSize(54)), height:Math.round(responsiveSize(54))}}>
+                        <PeopleGroup width={Math.round(responsiveSize(54))} height={Math.round(responsiveSize(54))} fill="#fff"/>
                     </View>
                 </View>
                 <Text
                     className="font-poppins_semi_bold text-secondary text-center"
                     style={{
-                        fontSize:responsiveSize(17.1875),
+                        fontSize:responsiveSize(16.75),
                         marginTop:responsiveSize(7.6388889)
                     }}>
                     Helping Migrant Communities
                 </Text>
                 <Text 
                     className="font-poppins_light_italic text-secondary text-center"
-                    style={{fontSize:responsiveSize(13.3680556)}}
+                    style={{fontSize:responsiveSize(13)}}
                 >
                     Supporting students and families in understanding their new social and educational environment.
                 </Text>
@@ -62,27 +62,27 @@ function WhyThisApp() {
                     padding: responsiveSize(15.27),
                 }}
             >
-                <View className="relative" style={{width: Math.round(responsiveSize(110)), height:Math.round(responsiveSize(110))}}>
+                <View className="relative" style={{width: Math.round(responsiveSize(88.7)), height:Math.round(responsiveSize(88.7))}}>
                     <View
                         className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] "
                         style={{
-                        width: Math.round(responsiveSize(110)),
-                        height: Math.round(responsiveSize(110)) 
+                        width: Math.round(responsiveSize(88.7)),
+                        height: Math.round(responsiveSize(88.7)) 
                         }}>
-                        <Book width={Math.round(responsiveSize(110))} height={Math.round(responsiveSize(110))} fill="#070029" className="  "/>
+                        <Book width={Math.round(responsiveSize(88.7))} height={Math.round(responsiveSize(88.7))} fill="#070029" className="  "/>
                     </View>
                 </View>
                 <Text
                     className="font-poppins_semi_bold text-secondary text-center"
                     style={{
-                        fontSize:responsiveSize(17.1875),
+                        fontSize:responsiveSize(16.75),
                         marginTop:responsiveSize(7.6388889)
                     }}>
                     Empowering Educators
                 </Text>
                 <Text 
                     className="font-poppins_light_italic text-secondary text-center"
-                    style={{fontSize:responsiveSize(13.3680556)}}
+                    style={{fontSize:responsiveSize(13)}}
                 >
                     Providing resources to help teachers guide students through the integration process.
                 </Text>

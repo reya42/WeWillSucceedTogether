@@ -138,7 +138,7 @@ const Videos = () => {
     return (
         <View className="w-[100vw] h-[100vh] items-center bg-secondary z-0 top-0 relative">
             {/* Swipe Right Activity for going back to Index page */}
-            <View className="absolute left-0 top-0 w-[20vw] h-[100vh] z-[50]">
+            <View className="absolute left-0 top-0 w-[20vw] h-[100vh] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
@@ -146,7 +146,7 @@ const Videos = () => {
             <SwipeTo scrollY={-1} side="r" text="Swipe Right to Go Back" dropAnim={active}/>
 
             {/* Swipe Up Activity for going back to Index page */}
-            <View className="absolute left-0 bottom-0 w-[100vw] h-[33.3vh] z-[50]">
+            <View className="absolute left-0 bottom-0 w-[100vw] h-[33.3vh] z-[9999]">
                 <GestureDetector gesture={swipeUp}>
                     <View className="w-full h-full" />
                 </GestureDetector>

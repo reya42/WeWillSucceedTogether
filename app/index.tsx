@@ -39,12 +39,12 @@ const Index = () => {
             scrollEventThrottle={64}
         >   
         {/*                       Swipe Right Activity                       */}
-        <View className="absolute right-0 top-0 w-[25vw] h-[81%] z-[50]">
+        <View className="absolute right-0 top-0 w-[25vw] h-[81%] z-[9999]">
             <GestureDetector gesture={swipeLeft}>
                 <View className="w-full h-full"/>
             </GestureDetector>
         </View>
-        <View className="absolute right-0 bottom-0 w-[25vw] h-[10%] z-[50]">
+        <View className="absolute right-0 bottom-0 w-[25vw] h-[10%] z-[9999]">
             <GestureDetector gesture={swipeLeft}>
                 <View className="w-full h-full"/>
             </GestureDetector>
@@ -72,7 +72,7 @@ const Index = () => {
                 style={{
                     position: scrollY >= 2 * screenHeight ? "sticky" : "relative",
                     top: scrollY >= 2 * screenHeight ? 0 : "auto",
-                    zIndex: 30,
+                    zIndex: 50,
                 }}
             >
                 <WhyThisApp />
@@ -86,7 +86,7 @@ const Index = () => {
                 style={{
                     position: scrollY >= 3 * screenHeight ? "sticky" : "relative",
                     top: scrollY >= 3 * screenHeight ? 0 : "auto",
-                    zIndex: 40,
+                    zIndex: 100,
                 }}
             >
 

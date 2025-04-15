@@ -35,18 +35,18 @@ const Country = () => {
     return (
         <View className='bg-secondary w-[100vw] h-[100vh] flex items-center justify-center'>
             {/* Swipe Left Activity for going back to Index page */}
-            <View className="absolute left-0 top-0 w-[25vw] h-[40%] z-[50]">
+            <View className="absolute left-0 top-0 w-[25vw] h-[40%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
             </View>
-            <View className="absolute left-0 bottom-0 w-[25vw] h-[34%] z-[50]">
+            <View className="absolute left-0 bottom-0 w-[25vw] h-[34%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
             </View>
             <SwipeTo scrollY={0} side="r" text="Swipe from Left to Go Back" dropAnim={0}/>
-            <View className='mt-[8vh] mb-[4vh] flex items-center'>
+            <View className='mt-[10vh] mb-[5vh] flex items-center'>
                 <Text 
                     className="text-primary font-poppins_medium_italic relative z-30"
                     style={{
@@ -56,20 +56,6 @@ const Country = () => {
                         textShadowRadius: 10
                     }}>
                     {country.name}
-                </Text>
-                <Text 
-                    className="bg-secondary text-primary font-poppins_medium_italic relative z-10 text-center"
-                    style={{
-                        fontSize:responsiveSize(country.titleFontSize*multiplier),
-                        textShadowColor: 'rgba(0, 0, 0, 1)',
-                        textShadowOffset: {width: -1, height: 1},
-                        textShadowRadius: 10,
-                        margin: 0,
-                        padding: 0,
-                    }}>
-                    {
-                        country.title
-                    }
                 </Text>
                 <Text 
                     className="text-secondary bg-primary font-poppins_medium_italic relative z-10 text-center"
@@ -94,7 +80,7 @@ const Country = () => {
                 </Text>
             </View>
             <View 
-                className='w-[100vw] h-[70vh] flex-col items-center justify-center mb-[2vh] gap-[0.5vh]'
+                className='w-[100vw] h-[65vh] flex-col items-center justify-center mb-[2vh] gap-[0.5vh]'
             >
                 {
                     country.Videos.map((item, index) =>(

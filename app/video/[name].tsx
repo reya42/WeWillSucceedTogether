@@ -39,12 +39,12 @@ const VideoPlayer = () => {
     return (
         <View className='bg-secondary w-[100vw] h-[100vh]'>
             {/* Swipe Left Activity for going back to Country page */}
-            <View className="absolute left-0 top-0 w-[25vw] h-[40%] z-[50]">
+            <View className="absolute left-0 top-0 w-[25vw] h-[40%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
             </View>
-            <View className="absolute left-0 bottom-0 w-[25vw] h-[34%] z-[50]">
+            <View className="absolute left-0 bottom-0 w-[25vw] h-[34%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>

@@ -165,14 +165,14 @@ const SwipeTo = ({ scrollY, side, text, dropAnim }: SwipeToProps) => {
             style={[{
                 position: "absolute",
                 opacity: opacity,
-                top: side === "b" ? responsiveHeight(90) + scrollY:responsiveHeight(2) + scrollY,
+                top: side === "b" ? responsiveHeight(90) + scrollY:responsiveHeight(5) + scrollY,
                 transform: [
                     side !== "b" ? { translateX: translate } : { translateY: translate }
                 ],
                 width: responsiveSize(155) + responsiveSize(15) + responsiveSize(30),
                 padding: responsiveSize(15),
                 borderRadius: responsiveSize(15),
-                backgroundColor: scrollY <= 0.95 && scrollY >= 0 ? "transparent" : 'rgba(7, 0, 41, 0.5)',
+                backgroundColor: 'rgba(7, 0, 41, 0.5)',
             },
             side === "r" ? { left: screenWidth * 0.025 } : { right: screenWidth * 0.025 }
             ]}
