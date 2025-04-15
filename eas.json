@@ -16,7 +16,10 @@
                 "buildType": "app-bundle"
             },
             "ios": {
-              "simulator": true
+                "simulator": false,
+                "enterpriseProvisioning": "universal",
+                "distribution": "store",
+                "buildConfiguration": "Release"
             }
         }
     },
