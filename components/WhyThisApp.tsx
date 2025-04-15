@@ -62,19 +62,14 @@ function WhyThisApp() {
                     padding: responsiveSize(15.27),
                 }}
             >
-                <View 
-                    className="relative"
-                    style={{
-                       width: Math.round(responsiveSize(105.034722)),
-                       height: Math.round(responsiveSize(105.034722)) 
-                    }}>
+                <View className="relative" style={{width: Math.round(responsiveSize(110)), height:Math.round(responsiveSize(110))}}>
                     <View
-                        className="absolute left-[60%] top-[50%] -translate-x-[60%] -translate-y-[50%] "
+                        className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] "
                         style={{
-                        width: Math.round(responsiveSize(105.034722)),
-                        height: Math.round(responsiveSize(105.034722)) 
+                        width: Math.round(responsiveSize(110)),
+                        height: Math.round(responsiveSize(110)) 
                         }}>
-                        <Book width={110} height={110} fill="#070029" className="  "/>
+                        <Book width={Math.round(responsiveSize(110))} height={Math.round(responsiveSize(110))} fill="#070029" className="  "/>
                     </View>
                 </View>
                 <Text
