@@ -16,7 +16,6 @@ workflows:
           # Download the .tar.gz artifact
           curl -L -o ./ios-build.tar.gz "https://expo.dev/artifacts/eas/o5Xgx1me6ch6ZymFc8xCzA.tar.gz"
           
-          tar -xzf ios-build.tar.gz
     # Save artifacts for debugging
     artifacts:
       - ./test-screenshot.png  # Visual confirmation
