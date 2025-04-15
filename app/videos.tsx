@@ -154,7 +154,7 @@ const Videos = () => {
             <SwipeTo scrollY={0} side="b" text="Swipe Up to Change Country" dropAnim={active}/>
 
             {/* Content */}
-            <View className="w-full z-10 mt-[33vh]">
+            <View className="w-full z-10 mt-[33vh] -translate-y-1/2">
                 <Text
                     className="font-poppins_light_italic text-primary text-center"
                     style={{
@@ -200,6 +200,17 @@ const Videos = () => {
                                 index={index}
                                 active={active}
                             />
+                            <Text 
+                                className="absolute text-primary bottom-[2.5vh] left-[0vw] p-[1rem] -translate-y-[50%]"
+                                style={{
+                                    fontSize:responsiveSize(12),
+                                    textShadowColor: 'rgba(0, 0, 0, 1)',
+                                    textShadowOffset: {width: -1, height: 1},
+                                    textShadowRadius: 2,
+                                }}
+                                >
+                                    Image by {item.bgAttribution}
+                            </Text>
                     </AnimatedBG>
                 ))}
             

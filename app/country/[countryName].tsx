@@ -48,16 +48,6 @@ const Country = () => {
             <SwipeTo scrollY={0} side="r" text="Swipe from Left to Go Back" dropAnim={0}/>
             <View className='mt-[8vh] mb-[4vh] flex items-center'>
                 <Text 
-                    className="text-primary font-poppins_medium_italic z-10"
-                    style={{
-                        fontSize: responsiveSize(country.titleFontSize*multiplier),
-                        textShadowColor: 'rgba(0, 0, 0, 1)',
-                        textShadowOffset: {width: -1, height: 1},
-                        textShadowRadius: 10
-                    }}>
-                    {country.title}
-                </Text>
-                <Text 
                     className="text-primary font-poppins_medium_italic relative z-30"
                     style={{
                         fontSize: responsiveSize(country.nameFontSize*multiplier),
@@ -66,6 +56,20 @@ const Country = () => {
                         textShadowRadius: 10
                     }}>
                     {country.name}
+                </Text>
+                <Text 
+                    className="bg-secondary text-primary font-poppins_medium_italic relative z-10 text-center"
+                    style={{
+                        fontSize:responsiveSize(country.titleFontSize*multiplier),
+                        textShadowColor: 'rgba(0, 0, 0, 1)',
+                        textShadowOffset: {width: -1, height: 1},
+                        textShadowRadius: 10,
+                        margin: 0,
+                        padding: 0,
+                    }}>
+                    {
+                        country.title
+                    }
                 </Text>
                 <Text 
                     className="text-secondary bg-primary font-poppins_medium_italic relative z-10 text-center"

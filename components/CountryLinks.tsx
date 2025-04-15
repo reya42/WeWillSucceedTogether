@@ -32,30 +32,20 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
 
     return (
         <View
-            className="w-[100vw] flex items-center justify-center"
+            className="w-[100vw] flex items-center justify-center relative"
             style={{
                 height: responsiveHeight(25),
             }}
         >
-            <Text 
-                className="text-primary font-poppins_medium_italic z-10 text-center w-[100vw]"
-                style={{
-                    fontSize:responsiveSize(country.titleFontSize),
-                    textShadowColor: 'rgba(0, 0, 0, 1)',
-                    textShadowOffset: {width: -1, height: 1},
-                    textShadowRadius: 10
-                }}>
-                {
-                    country.title
-                }
-            </Text>
             <Text 
                 className="text-primary font-poppins_medium_italic relative z-30 text-center w-[100vw]"
                 style={{
                     fontSize:responsiveSize(country.nameFontSize),
                     textShadowColor: 'rgba(0, 0, 0, 0.75)',
                     textShadowOffset: {width: -1, height: 1},
-                    textShadowRadius: 10
+                    textShadowRadius: 10,
+                    margin: 0,
+                    padding: 0,
                 }}>
                 {
                     country.name
@@ -64,12 +54,14 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
             {
                 country.secondName && 
                 <Text 
-                    className="text-primary font-poppins_medium_italic relative z-30 text-center w-[100vw]"
+                    className="text-primary font-poppins_medium_italic relative z-30 text-center"
                     style={{
                         fontSize:responsiveSize(country.secondNameFontSize),
                         textShadowColor: 'rgba(0, 0, 0, 0.75)',
                         textShadowOffset: {width: -1, height: 1},
-                        textShadowRadius: 10
+                        textShadowRadius: 10,
+                        margin: 0,
+                        padding: 0,
                     }}>
                     {
                         country.secondName
@@ -77,12 +69,28 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
                 </Text>
             }
             <Text 
+                className="bg-secondary text-primary font-poppins_medium_italic relative z-10 text-center"
+                style={{
+                    fontSize:responsiveSize(country.titleFontSize),
+                    textShadowColor: 'rgba(0, 0, 0, 1)',
+                    textShadowOffset: {width: -1, height: 1},
+                    textShadowRadius: 10,
+                    margin: 0,
+                    padding: 0,
+                }}>
+                {
+                    country.title
+                }
+            </Text>
+            <Text 
                 className="text-secondary bg-primary font-poppins_medium_italic relative z-10 text-center"
                 style={{
                     fontSize:responsiveSize(country.subtitleFontSize),
                     shadowColor: 'rgba(0, 0, 0, 1)',
                     shadowOffset: {width: -1, height: 1},
-                    shadowRadius: 10
+                    shadowRadius: 10,
+                    margin: 0,
+                    padding: 0,
                 }}>
                 {
                     country.subtitle
@@ -100,7 +108,7 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
                 }}
             >
                     <Text
-                        className="text-primary font-poppins_light_italic text-center"
+                        className="text-primary font-poppins_light_italic text-center relative z-[1000]"
                         style={{
                             fontSize: responsiveSize(country.buttonFontSize),
                         }}    
