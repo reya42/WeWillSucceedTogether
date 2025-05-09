@@ -1,17 +1,15 @@
 {
     "cli": {
-        "appVersionSource": "remote"
+        "appVersionSource": "local"
     },
     "build": {
         "preview": {
-          "developmentClient": true,
           "distribution": "internal",
           "ios": {
             "simulator": true
           }
         },
         "production": {
-            "developmentClient": false, 
             "android": {
                 "buildType": "app-bundle"
             },
