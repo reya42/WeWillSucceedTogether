@@ -2,7 +2,7 @@
   "expo": {
     "name": "We Will Succeed Together",
     "slug": "we-will-succeed-together",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -13,6 +13,7 @@
         "supportsTablet": true,
         "requireFullScreen": true,
         "bundleIdentifier": "com.wewillsucceed.together",
+        "buildNumber": "2",
         "infoPlist": {
             "ITSAppUsesNonExemptEncryption": false
         }
@@ -20,7 +21,7 @@
     "android": {
         "bundler": "metro",
         "package": "com.mesutbudak.wewillsucceedtogether",
-        "versionCode": 1,
+        "versionCode": 2,
         "adaptiveIcon": {
             "foregroundImage": "./assets/images/adaptive-icon.png",
             "backgroundColor": "#f5f6fb"

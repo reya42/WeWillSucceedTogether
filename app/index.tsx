@@ -39,17 +39,11 @@ const Index = () => {
             scrollEventThrottle={64}
         >   
         {/*                       Swipe Right Activity                       */}
-        <View className="absolute right-0 top-0 w-[25vw] h-[81%] z-[9999]">
+        <View className="absolute right-0 top-0 w-[25vw] h-[100%] z-[9999]">
             <GestureDetector gesture={swipeLeft}>
                 <View className="w-full h-full"/>
             </GestureDetector>
         </View>
-        <View className="absolute right-0 bottom-0 w-[25vw] h-[10%] z-[9999]">
-            <GestureDetector gesture={swipeLeft}>
-                <View className="w-full h-full"/>
-            </GestureDetector>
-        </View>
-
         <SwipeTo scrollY={scrollY} side="l" text="Swipe Left to Watch Videos" dropAnim={-1} />
 
             {/*                               Hero                               */}
