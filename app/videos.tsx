@@ -2,10 +2,9 @@ import { View, Text, Animated, TouchableOpacity, Dimensions, ImageBackground } f
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'expo-router';
 import { Directions, Gesture, GestureDetector } from 'react-native-gesture-handler';
-import responsiveSize, { responsiveHeight } from '@/constants/responsiveSize';
+import { moderateScale } from "react-native-size-matters";
 import CountryLinks from '@/components/CountryLinks';
 import countries from '@/constants/countries';
-import Caret from "@/assets/svg/caret.svg";
 import SwipeTo from '@/components/SwipeTo';
 
 const { width, height } = Dimensions.get('screen');
@@ -138,7 +137,7 @@ const Videos = () => {
     return (
         <View className="w-[100vw] h-[100vh] items-center bg-secondary z-0 top-0 relative">
             {/* Swipe Right Activity for going back to Index page */}
-            <View className="absolute left-0 top-0 w-[20vw] h-[100vh] z-[9999]">
+            <View className="absolute left-0 top-0 w-[33.333vw] h-[100vh] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
@@ -158,7 +157,7 @@ const Videos = () => {
                 <Text
                     className="font-poppins_light_italic text-primary text-center"
                     style={{
-                        fontSize: responsiveSize(22.9166666),
+                        fontSize: moderateScale(22.9166666),
                         textShadowColor: 'rgba(0, 0, 0, 0.5)',
                         textShadowOffset: {width: -1, height: 1},
                         textShadowRadius: 10,
@@ -169,8 +168,8 @@ const Videos = () => {
                 <Text
                     className="font-poppins_medium text-primary text-center"
                     style={{
-                        fontSize: responsiveSize(10.0260416),
-                        marginTop: -responsiveSize(10.6944444),
+                        fontSize: moderateScale(10.0260416),
+                        marginTop: -moderateScale(10.6944444),
                         textShadowColor: 'rgba(0, 0, 0, 0.5)',
                         textShadowOffset: {width: -1, height: 1},
                         textShadowRadius: 10
@@ -203,7 +202,7 @@ const Videos = () => {
                             <Text 
                                 className="absolute text-primary bottom-[2.5vh] left-[0vw] p-[1rem] -translate-y-[50%]"
                                 style={{
-                                    fontSize:responsiveSize(12),
+                                    fontSize:moderateScale(12),
                                     textShadowColor: 'rgba(0, 0, 0, 1)',
                                     textShadowOffset: {width: -1, height: 1},
                                     textShadowRadius: 2,

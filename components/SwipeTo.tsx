@@ -1,7 +1,8 @@
 import { View, Text, Animated, Dimensions } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import AnglesRight from "@/assets/svg/angles-right.svg";
-import responsiveSize, { responsiveHeight } from '@/constants/responsiveSize';
+import { responsiveHeight } from '@/constants/responsiveSize';
+import { moderateScale } from "react-native-size-matters";
 
 const screenWidth = Dimensions.get("screen").width;
 const SCROLL_POSITION_TOLERANCE = 2; // pixels
@@ -69,7 +70,7 @@ const SwipeTo = ({ scrollY, side, text, dropAnim }: SwipeToProps) => {
 
         // Shake animation (left-right movement)
         const shakeAnimation = () => {
-            const moveDistance = responsiveSize(side === 'l' ? -10 : 10);
+            const moveDistance = moderateScale(side === 'l' ? -10 : 10);
             
             Animated.sequence([
                 Animated.timing(translate, {
@@ -169,20 +170,20 @@ const SwipeTo = ({ scrollY, side, text, dropAnim }: SwipeToProps) => {
                 transform: [
                     side !== "b" ? { translateX: translate } : { translateY: translate }
                 ],
-                width: responsiveSize(155) + responsiveSize(15) + responsiveSize(30),
-                padding: responsiveSize(15),
-                borderRadius: responsiveSize(15),
+                width: moderateScale(155) + moderateScale(15) + moderateScale(30),
+                padding: moderateScale(15),
+                borderRadius: moderateScale(15),
                 backgroundColor: 'rgba(7, 0, 41, 0.5)',
             },
             side === "r" ? { left: screenWidth * 0.025 } : { right: screenWidth * 0.025 }
             ]}
         >
             {side === "r" && (
-                <View style={{ width: responsiveSize(20), height: responsiveSize(20), marginRight: responsiveSize(5) }}>
+                <View style={{ width: moderateScale(20), height: moderateScale(20), marginRight: moderateScale(5) }}>
                     <AnglesRight 
                         fill='white'
-                        width={responsiveSize(20)}
-                        height={responsiveSize(20)}
+                        width={moderateScale(20)}
+                        height={moderateScale(20)}
                     />
                 </View>
             )}
@@ -190,8 +191,8 @@ const SwipeTo = ({ scrollY, side, text, dropAnim }: SwipeToProps) => {
             <Text 
                 className='text-primary font-poppins_medium_italic'
                 style={{
-                    width: responsiveSize(155),
-                    fontSize: responsiveSize(10),
+                    width: moderateScale(155),
+                    fontSize: moderateScale(10),
                     textShadowColor: 'rgba(0, 0, 0, 1)',
                     textShadowOffset: {width: -1, height: 1},
                     textShadowRadius: 10
@@ -202,16 +203,16 @@ const SwipeTo = ({ scrollY, side, text, dropAnim }: SwipeToProps) => {
             
             {(side === "l" || side === "b") && (
                 <View style={{ 
-                    width: responsiveSize(20),
-                    height: responsiveSize(20),
+                    width: moderateScale(20),
+                    height: moderateScale(20),
                     transform: [{ 
                         rotate: side === "l"?"180deg":"-90deg"
                     }],
                 }}>
                     <AnglesRight 
                         fill='white'
-                        width={responsiveSize(20)}
-                        height={responsiveSize(20)}
+                        width={moderateScale(20)}
+                        height={moderateScale(20)}
                     />
                 </View>
             )}

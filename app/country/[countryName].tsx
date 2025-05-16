@@ -1,10 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React, { useEffect } from 'react'
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import responsiveSize from '@/constants/responsiveSize';
-import { Directions, Gesture, GestureDetector, ScrollView } from 'react-native-gesture-handler';
+import { Directions, Gesture, GestureDetector } from 'react-native-gesture-handler';
 import VideoLinks from '@/components/VideoLinks';
 import SwipeTo from '@/components/SwipeTo';
+import { moderateScale } from "react-native-size-matters";
 
 import countries from '@/constants/countries';
 
@@ -30,17 +30,21 @@ const Country = () => {
         router.back();
     }).runOnJS(true);
 
-    const multiplier = countryName == "Italy" ? 0.8 : 1
-
     return (
-        <View className='bg-secondary w-[100vw] h-[100vh] flex items-center justify-center'>
+        <ScrollView
+            contentContainerStyle={{ 
+                alignItems: 'center', 
+                justifyContent: 'center' 
+            }}
+            className='bg-secondary w-[100vw] h-[100vh]'>
+                
             {/* Swipe Left Activity for going back to Index page */}
-            <View className="absolute left-0 top-0 w-[25vw] h-[40%] z-[9999]">
+            <View className="absolute left-0 top-0 w-[23vw]  bg-[red] h-[32%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
             </View>
-            <View className="absolute left-0 bottom-0 w-[25vw] h-[34%] z-[9999]">
+            <View className="absolute left-0 top-0 w-[10vw]  bg-[green] h-[100%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
@@ -50,7 +54,7 @@ const Country = () => {
                 <Text 
                     className="text-primary font-poppins_medium_italic relative z-30"
                     style={{
-                        fontSize: responsiveSize(country.nameFontSize*multiplier),
+                        fontSize: moderateScale(country.nameFontSize),
                         textShadowColor: 'rgba(0, 0, 0, 0.75)',
                         textShadowOffset: {width: -1, height: 1},
                         textShadowRadius: 10
@@ -60,7 +64,7 @@ const Country = () => {
                 <Text 
                     className="text-secondary bg-primary font-poppins_medium_italic relative z-10 text-center"
                     style={{
-                        fontSize: responsiveSize(country.subtitleFontSize*multiplier),
+                        fontSize: moderateScale(country.subtitleFontSize),
                         shadowColor: 'rgba(0, 0, 0, 1)',
                         shadowOffset: {width: -1, height: 1},
                         shadowRadius: 10
@@ -70,7 +74,7 @@ const Country = () => {
                 <Text 
                     className="text-secondary bg-primary font-poppins_medium_italic relative z-10 text-center"
                     style={{
-                        fontSize: responsiveSize(country.watchVideosFontSize*multiplier),
+                        fontSize: moderateScale(country.watchVideosFontSize),
                         shadowColor: 'rgba(0, 0, 0, 1)',
                         shadowOffset: {width: -1, height: 1},
                         shadowRadius: 10,
@@ -87,7 +91,7 @@ const Country = () => {
                     <VideoLinks country={item.country? item.country : country.name} video={item} totalVideos={country.Videos.length} key={index}/>
                 ))}
             </View>
-        </View>
+        </ScrollView>
     );
 }
 

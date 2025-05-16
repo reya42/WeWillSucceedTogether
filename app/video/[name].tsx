@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import { useLocalSearchParams, useRouter } from 'expo-router'
-import responsiveSize from '@/constants/responsiveSize'
 import { Directions, Gesture, GestureDetector } from 'react-native-gesture-handler'
 import SwipeTo from '@/components/SwipeTo'
 import YoutubePlayer from 'react-native-youtube-iframe'
+import { moderateScale, scale } from "react-native-size-matters";
 
 const VideoPlayer = () => {
     const { name, link, country } = useLocalSearchParams()
@@ -37,9 +37,9 @@ const VideoPlayer = () => {
     }
 
     return (
-        <View className='bg-secondary w-[100vw] h-[100vh]'>
+        <View className='bg-secondary w-[100vw] h-[100vh] justify-center items-center flex'>
             {/* Swipe Left Activity for going back to Country page */}
-            <View className="absolute left-0 top-0 w-[25vw] h-[40%] z-[9999]">
+            <View className="absolute left-0 top-0 w-[25vw] h-[41%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
@@ -52,14 +52,11 @@ const VideoPlayer = () => {
             
             <SwipeTo scrollY={0} side="r" text="Swipe from Left to Go Back" dropAnim={0} />
             
-            <View className='flex-1 p-4 mt-[20vh]'>
+            <View className='p-4 '>
                 <Text 
                     className="text-primary font-poppins_bold text-center mb-4"
                     style={{
-                        fontSize: responsiveSize(24),
-                        textShadowColor: 'rgba(0, 0, 0, 0.75)',
-                        textShadowOffset: {width: -1, height: 1},
-                        textShadowRadius: 10
+                        fontSize: moderateScale(24),
                     }}
                 >
                     {country}'s {name}
@@ -67,9 +64,9 @@ const VideoPlayer = () => {
                 
                 <View style={styles.videoContainer}>
                     <YoutubePlayer
-                        width={Math.round(responsiveSize(320))}
-                        height={Math.round(responsiveSize(180))}
-                        play={true}
+                        width={scale(330)}
+                        height={scale(180)}
+                        play={false}
                         videoId={videoId}
                         webViewProps={{
                             injectedJavaScript: `
@@ -89,6 +86,9 @@ const VideoPlayer = () => {
 
 const styles = StyleSheet.create({
     videoContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: 10,
         overflow: 'hidden',
         backgroundColor: '#000',

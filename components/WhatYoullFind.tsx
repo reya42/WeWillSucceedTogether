@@ -4,7 +4,8 @@ import { memo, useState } from "react";
 import BookOpen from "@/assets/svg/book-open.svg"
 import UserGraduate from "@/assets/svg/user-graduate.svg"
 import HouseChimneyUser from "@/assets/svg/house-chimney-user.svg"
-import responsiveSize from "@/constants/responsiveSize";
+import { moderateScale } from "react-native-size-matters";
+
 
 const WhatToFind = [
     {
@@ -36,12 +37,12 @@ const WhatYoullFind = () => {
         <View 
             className='bg-primary w-[100vw] h-[100vh] flex-col justify-center z-30'
             style={{
-                paddingTop:responsiveSize(38.1944445),
-                paddingBottom:responsiveSize(38.1944445),
-                borderTopLeftRadius: responsiveSize(43),
-                borderTopRightRadius: responsiveSize(43),
+                paddingTop:moderateScale(38.1944445),
+                paddingBottom:moderateScale(38.1944445),
+                borderTopLeftRadius: moderateScale(43),
+                borderTopRightRadius: moderateScale(43),
             }}>
-            <Text className='font-poppins font-bold text-center text-secondary' style={{fontSize: responsiveSize(26.736)}} >
+            <Text className='font-poppins font-bold text-center text-secondary' style={{fontSize: moderateScale(26.736)}} >
                 What You'll Find in The App
             </Text>
             <View className="container flex relative w-[90vw] h-[59vw] left-[5vw] top-[10vw]">

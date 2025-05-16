@@ -1,7 +1,8 @@
-import responsiveSize, { responsiveHeight } from "@/constants/responsiveSize";
+import { responsiveHeight } from "@/constants/responsiveSize";
 import { Link } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Text, Image, TouchableOpacity, View, Animated, Dimensions, ImageBackground, Linking } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 
 import ChevronLeft from "@/assets/svg/chevron-left.svg"
 
@@ -40,7 +41,7 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
             <Text 
                 className="text-primary font-poppins_medium_italic relative z-30 text-center w-[100vw]"
                 style={{
-                    fontSize:responsiveSize(country.nameFontSize),
+                    fontSize:moderateScale(country.nameFontSize),
                     textShadowColor: 'rgba(0, 0, 0, 0.75)',
                     textShadowOffset: {width: -1, height: 1},
                     textShadowRadius: 10,
@@ -56,7 +57,7 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
                 <Text 
                     className="text-primary font-poppins_medium_italic relative z-30 text-center"
                     style={{
-                        fontSize:responsiveSize(country.secondNameFontSize),
+                        fontSize:moderateScale(country.secondNameFontSize),
                         textShadowColor: 'rgba(0, 0, 0, 0.75)',
                         textShadowOffset: {width: -1, height: 1},
                         textShadowRadius: 10,
@@ -71,7 +72,7 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
             <Text 
                 className="bg-secondary text-primary font-poppins_medium_italic relative z-10 text-center"
                 style={{
-                    fontSize:responsiveSize(country.titleFontSize),
+                    fontSize:moderateScale(country.titleFontSize),
                     textShadowColor: 'rgba(0, 0, 0, 1)',
                     textShadowOffset: {width: -1, height: 1},
                     textShadowRadius: 10,
@@ -85,7 +86,7 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
             <Text 
                 className="text-secondary bg-primary font-poppins_medium_italic relative z-10 text-center"
                 style={{
-                    fontSize:responsiveSize(country.subtitleFontSize),
+                    fontSize:moderateScale(country.subtitleFontSize),
                     shadowColor: 'rgba(0, 0, 0, 1)',
                     shadowOffset: {width: -1, height: 1},
                     shadowRadius: 10,
@@ -103,14 +104,14 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
                 }}
                 className="bg-secondary flex flex-row relative"
                 style={{
-                    padding:responsiveSize(5),
+                    padding:moderateScale(5),
                     zIndex: 1000,
                 }}
             >
                     <Text
                         className="text-primary font-poppins_light_italic text-center relative z-[1000]"
                         style={{
-                            fontSize: responsiveSize(country.buttonFontSize),
+                            fontSize: moderateScale(country.buttonFontSize),
                         }}    
                     >
                         Go to {country.name}'s Videos
@@ -118,14 +119,14 @@ const CountryLinks = ({ country, index, active }: { country: countryItem, index:
                     <View 
                         style={{
                             zIndex:1001,
-                        width: responsiveSize(20),
-                        height: responsiveSize(20),
+                        width: moderateScale(20),
+                        height: moderateScale(20),
                         transform:[
-                            {translateY:responsiveSize(3)},
+                            {translateY:moderateScale(3)},
                             {rotate: "180deg"}
                         ]
                     }}>
-                        <ChevronLeft width={responsiveSize(20)} height={responsiveSize(20)} fill="white" />
+                        <ChevronLeft width={moderateScale(20)} height={moderateScale(20)} fill="white" />
                     </View>
             </Link>
         </View>

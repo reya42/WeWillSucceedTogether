@@ -116,6 +116,13 @@ const countries = [
                 country: null
             },
             {
+                name: "Popular Characters and Heroes",
+                image: require("@/assets/images/Italy/LastSupperbyDaVinci.jpg"),
+                attribution: "Yuniclf",
+                link: "https://www.youtube.com/watch?v=sIzQtT9eQww",
+                country: null
+            },
+            {
                 name: "Traditional Dishes and Products",
                 image: require("@/assets/images/Italy/Pizza.jpg"),
                 attribution: "Robot8A",
@@ -175,10 +182,24 @@ const countries = [
                 country: null,
             },
             {
-                name: "Popular Characters",
+                name: "National Days and Festivals",
+                image: require("@/assets/images/Sweden/Midsommarfirande.webp"),
+                attribution: "Gunnar Creutz",
+                link: "https://www.youtube.com/watch?v=eXlpKQ7UH4s",
+                country: null
+            },
+            {
+                name: "Popular Characters and Heroes",
                 image: require("@/assets/images/Sweden/AlfredNobel.jpg"),
                 attribution: "AleWi",
                 link: "https://www.youtube.com/watch?v=sIWE3ucugPI",
+                country: null,
+            },
+            {
+                name: "Traditional Dishes and Products",
+                image: require("@/assets/images/Sweden/PrivatJulbord.webp"),
+                attribution: "David Castor",
+                link: "https://www.youtube.com/watch?v=zPHLXvsAFNU",
                 country: null,
             },
             {
@@ -195,6 +216,13 @@ const countries = [
                 link: "https://www.youtube.com/watch?v=QQY-zif1zGc",
                 country: null,
             },
+            {
+                name: "Weddings",
+                image: require("@/assets/images/Sweden/Midsummer.webp"),
+                attribution: "Bengt Nyman",
+                link: "https://www.youtube.com/watch?v=N4v3Um_GqeA",
+                country: null,
+            },
         ]
     },
     {
@@ -202,9 +230,9 @@ const countries = [
         secondName: "",
         title:"A World of Traditions and Stories",
         subtitle:"Experience your own culture in your language.",
-        nameFontSize: 60,
+        nameFontSize: 75,
         secondNameFontSize: 0,
-        titleFontSize: 14,
+        titleFontSize: 13,
         subtitleFontSize: 8.8,
         buttonFontSize: 17.4,
         watchVideosFontSize: 11.8,
@@ -227,11 +255,25 @@ const countries = [
                 country: "Somalia"
             },
             {
+                name: "National Days and Festivals in Venezuela",
+                image: require("@/assets/images/Other/VenezuelaSanJuanfestival.webp"),
+                attribution: "Juan ramon colina",
+                link: "https://www.youtube.com/watch?v=JF2fLuPCNow",
+                country: "Venezuela"
+            },
+            {
                 name: "Popular Characters of Pakistan",
                 image: require("@/assets/images/Other/QuaideAzam.jpg"),
                 attribution: "TANK RAIDER",
                 link: "https://www.youtube.com/watch?v=XFlV6YQqXvw",
                 country: "Pakistan"
+            },
+            {
+                name: "Popular Arabic Foods in Sweden",
+                image: require("@/assets/images/Other/ArabicRestaurantinSweden.webp"),
+                attribution: "Bin im Garten",
+                link: "https://www.youtube.com/watch?v=AspT5mx8Hvs",
+                country: "Sweden & Arabic Countries"
             },
             {
                 name: "Traditional Sport from Somalia",

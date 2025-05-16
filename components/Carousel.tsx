@@ -1,6 +1,6 @@
-import responsiveSize from "@/constants/responsiveSize";
 import { useEffect, useRef, useState } from "react";
 import { Text, Dimensions, Pressable, ImageBackground, View, Animated } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -23,10 +23,10 @@ const Carousel = ({data, id, active, setActive}: { data: WhatToFindItem; id: num
     
     const size = useRef(new Animated.Value(elements[id].size)).current;
     const locations = useRef(new Animated.ValueXY({x:elements[id].x, y:elements[id].y})).current;
-    const fontSize = useRef(new Animated.Value(active === id ? responsiveSize(16.2326389) : responsiveSize(11.7447916))).current;
-    const lSide = useRef(new Animated.Value(active === id ? responsiveSize(23.8715277) : 0)).current;
-    const rtSide = useRef(new Animated.Value(active === id ? 0 : id == 1 ? responsiveSize(23.8715277) : 0)).current;
-    const rbSide = useRef(new Animated.Value(active === id ? 0 : id == 1 ? 0 : responsiveSize(23.8715277))).current;
+    const fontSize = useRef(new Animated.Value(active === id ? moderateScale(16.2326389) : moderateScale(11.7447916))).current;
+    const lSide = useRef(new Animated.Value(active === id ? moderateScale(23.8715277) : 0)).current;
+    const rtSide = useRef(new Animated.Value(active === id ? 0 : id == 1 ? moderateScale(23.8715277) : 0)).current;
+    const rbSide = useRef(new Animated.Value(active === id ? 0 : id == 1 ? 0 : moderateScale(23.8715277))).current;
     
     const friction= 50;
     const tension= 30;
@@ -59,28 +59,28 @@ const Carousel = ({data, id, active, setActive}: { data: WhatToFindItem; id: num
             }).start();
 
             Animated.spring(fontSize, {
-                toValue: active === id ? responsiveSize(16.2326389) : responsiveSize(11.7447916) ,
+                toValue: active === id ? moderateScale(16.2326389) : moderateScale(11.7447916) ,
                 friction: friction,
                 tension: tension,
                 useNativeDriver: false,
             }).start();
 
             Animated.spring(lSide, {
-                toValue: active === id ? responsiveSize(23.8715277) : 0,
+                toValue: active === id ? moderateScale(23.8715277) : 0,
                 friction: friction,
                 tension: tension,
                 useNativeDriver: false,
             }).start();
 
             Animated.spring(rtSide, {
-                toValue: active === id ? 0 : order == 1 ? responsiveSize(23.8715277) : 0,
+                toValue: active === id ? 0 : order == 1 ? moderateScale(23.8715277) : 0,
                 friction: friction,
                 tension: tension,
                 useNativeDriver: false,
             }).start();
 
             Animated.spring(rbSide, {
-                toValue: active === id ? 0 : order == 1 ? 0 : responsiveSize(23.8715277),
+                toValue: active === id ? 0 : order == 1 ? 0 : moderateScale(23.8715277),
                 friction: friction,
                 tension: tension,
                 useNativeDriver: false,
@@ -94,7 +94,7 @@ const Carousel = ({data, id, active, setActive}: { data: WhatToFindItem; id: num
 
     const bgOpacity = size.interpolate({ inputRange: [elements[1].size, elements[0].size], outputRange: [ 0.9, 1]});
     const textOpacity = size.interpolate({ inputRange: [elements[1].size, elements[0].size], outputRange: [ 0, 1]});
-    const mTop = size.interpolate({ inputRange: [elements[1].size, elements[0].size], outputRange: [ 0, responsiveSize(9.54861109) ]});
+    const mTop = size.interpolate({ inputRange: [elements[1].size, elements[0].size], outputRange: [ 0, moderateScale(9.54861109) ]});
 
     return (
         <Animated.View
@@ -127,8 +127,8 @@ const Carousel = ({data, id, active, setActive}: { data: WhatToFindItem; id: num
                     className="text-primary text-center font-poppins_bold z-10 relative"
                     style={{ 
                         fontSize: fontSize,
-                        paddingLeft: responsiveSize(3.81944444),
-                        paddingRight:responsiveSize(3.81944444)
+                        paddingLeft: moderateScale(3.81944444),
+                        paddingRight:moderateScale(3.81944444)
                     }}
                 >
                     {data.title}
@@ -140,8 +140,8 @@ const Carousel = ({data, id, active, setActive}: { data: WhatToFindItem; id: num
                         height: active == id? "auto":0,
                         marginTop: mTop,
                         fontSize: fontSize,
-                        paddingLeft: responsiveSize(3.81944444),
-                        paddingRight:responsiveSize(3.81944444)
+                        paddingLeft: moderateScale(3.81944444),
+                        paddingRight:moderateScale(3.81944444)
                     }}
                 >
                     {data.detail}

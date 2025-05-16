@@ -13,11 +13,9 @@ const screenHeight = Dimensions.get("screen").height
 
 const Index = () => {
     const [scrollY, setScrollY] = useState(3);
-    const [stickyHeaderIndices, setStickyHeaderIndices] = useState(3)
 
     const handleScroll = (event: any) => {
         setScrollY(event.nativeEvent.contentOffset.y);
-        setStickyHeaderIndices(Math.round(event.nativeEvent.contentOffset.y / (screenHeight) - 0.4)+3);
     };
 
     const router = useRouter();
@@ -33,16 +31,26 @@ const Index = () => {
     return (
         <ScrollView
             className="w-full h-max bg-secondary relative"
-            stickyHeaderIndices={[stickyHeaderIndices]}
+            stickyHeaderIndices={[3]}
             showsVerticalScrollIndicator={false}
             onScroll={handleScroll}
-            scrollEventThrottle={64}
+            scrollEventThrottle={16}
         >   
         {/*                       Swipe Right Activity                       */}
-        <View className="absolute right-0 top-0 w-[25vw] h-[100%] z-[9999]">
+        <View className="absolute right-0 top-0 w-[33.333vw] h-[85.75%] z-[9999]">
             <GestureDetector gesture={swipeLeft}>
                 <View className="w-full h-full"/>
             </GestureDetector>
+        </View>
+        <View className="absolute right-0 top-[85.75%] w-[10vw] h-[6.75%] z-[9999]">
+            <GestureDetector gesture={swipeLeft}>
+                <View className="w-full h-full"/>
+            </GestureDetector>
+        <View className="absolute right-0 top-[98%] w-[33.333vw] h-[200%] z-[9999]">
+            <GestureDetector gesture={swipeLeft}>
+                <View className="w-full h-full"/>
+            </GestureDetector>
+        </View>
         </View>
         <SwipeTo scrollY={scrollY} side="l" text="Swipe Left to Watch Videos" dropAnim={-1} />
 
