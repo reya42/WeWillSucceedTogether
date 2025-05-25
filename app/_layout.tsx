@@ -41,7 +41,7 @@ export default function RootLayout() {
     if (fontsLoaded) {
         return  (
         <GestureHandlerRootView style={{ flex: 1 }}>
-            <Stack screenOptions={{ headerShown: false }} initialRouteName="index" />
+            <Stack screenOptions={{ headerShown: false }} />
         </GestureHandlerRootView>
         )
     }

@@ -36,15 +36,15 @@ const Country = () => {
                 alignItems: 'center', 
                 justifyContent: 'center' 
             }}
-            className='bg-secondary w-[100vw] h-[100vh]'>
+            className='bg-secondary w-[100vw] '>
                 
             {/* Swipe Left Activity for going back to Index page */}
-            <View className="absolute left-0 top-0 w-[23vw]  bg-[red] h-[32%] z-[9999]">
+            <View className="absolute left-0 top-0 w-[23vw] h-[32%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
             </View>
-            <View className="absolute left-0 top-0 w-[10vw]  bg-[green] h-[100%] z-[9999]">
+            <View className="absolute left-0 top-0 w-[10vw] h-[100%] z-[9999]">
                 <GestureDetector gesture={swipeRight}>
                     <View className="w-full h-full" />
                 </GestureDetector>
@@ -84,7 +84,7 @@ const Country = () => {
                 </Text>
             </View>
             <View 
-                className='w-[100vw] h-[65vh] flex-col items-center justify-center mb-[2vh] gap-[0.5vh]'
+                className='w-[100vw] flex-col items-center justify-center mb-[2vh] gap-[1vh]'
             >
                 {
                     country.Videos.map((item, index) =>(

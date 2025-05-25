@@ -22,7 +22,7 @@ const VideoLinks = ({country, video, totalVideos}:{ country: string, video:video
                 source={video.image}
                 className='w-full flex justify-center items-center relative'
                 style={{
-                    height: responsiveHeight(65/totalVideos-0.5),
+                    height: responsiveHeight(100/totalVideos),
                 }}
             >
                 <Text

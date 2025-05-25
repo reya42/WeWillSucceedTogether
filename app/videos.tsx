@@ -134,6 +134,13 @@ const Videos = () => {
         .onEnd(() => setActive(prev => (prev !== 3 ? prev + 1 : 0)))
         .runOnJS(true);
 
+    countries.forEach((country, index) => {
+        console.log(`${index+1}. Country: ${country.name}`);
+        country.Videos.forEach((video, index) => {
+            console.log(`   ${index+1}. Video: ${video.name}`);
+        })
+        console.log(`     Total Video For ${country.name}: ${country.Videos.length}`);
+    });
     return (
         <View className="w-[100vw] h-[100vh] items-center bg-secondary z-0 top-0 relative">
             {/* Swipe Right Activity for going back to Index page */}
