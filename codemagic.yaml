@@ -1,0 +1,25 @@
+workflows:
+  ios-simulator-test:
+    name: Install & Test iOS Build
+    environment:
+      # Required for iOS simulators
+      xcode: latest
+      node: 18.17.1  # Match your project's Node version
+    scripts:
+      # 1. Install dependencies
+      - name: Install Expo/EAS CLI
+        script: |
+          npm install -g expo-cli eas-cli
+      # 2. Download and extract your EAS build artifact
+      - name: Fetch iOS Simulator Build
+        script: |
+          # Download the .tar.gz artifact
+          curl -L -o ./ios-build.tar.gz "https://expo.dev/artifacts/eas/hajdpHRv2i2EPc8fNqdBcz.tar.gz"
+          
+    # Save artifacts for debugging
+    artifacts:
+      - /Users/builder/SS/iphone69/**/*.png
+      - /Users/builder/SS/iphone65/**/*.png
+      - /Users/builder/SS/ipad/**/*.png
+      - ./ios-build/**/*.app    # The installed app bundle
+      - ./ios-build.tar.gz      # Original build artifact

@@ -1,0 +1,35 @@
+{
+    "cli": {
+        "appVersionSource": "local"
+    },
+    "build": {
+        "preview": {
+            "distribution": "internal",
+            "ios": {
+                "simulator": true
+            }
+        },
+        "production": {
+            "android": {
+                "buildType": "app-bundle"
+            },
+            "ios": {
+                "simulator": false,
+                "distribution": "store",
+                "buildConfiguration": "Release"
+            }
+        }
+    },
+    "submit": {
+        "production": {
+            "android": {
+                "track": "production"
+            },
+            "ios": {
+                "appleId": "recepyasli42@gmail.com",
+                "ascAppId": "6744552320",
+                "appleTeamId": "L3RQYBU9QR"
+            }
+        }
+    }
+}

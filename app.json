@@ -1,0 +1,80 @@
+{
+  "expo": {
+    "name": "We Will Succeed Together",
+    "slug": "we-will-succeed-together",
+    "scheme": "wewillsucceedtogether",
+    "description": "We Will Succeed Together",
+    "owner": "lygian",
+    
+    "extra": {
+        "router": {
+            "origin": false
+        },
+        "eas": {
+            "projectId": "b89a0166-ff9a-483a-a291-101364113b6f"
+        }
+    },
+
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "automatic",
+    
+    "experiments": {
+        "tsconfigPaths": true
+    },
+    
+    "newArchEnabled": true,
+    
+    "assetBundlePatterns": [
+        "**/*"
+    ],
+    
+
+
+    "version": "1.2.5",
+
+
+    "android": {
+        "bundler": "metro",
+        "package": "com.mesutbudak.wewillsucceedtogether",
+        "versionCode": 15,
+        "adaptiveIcon": {
+            "foregroundImage": "./assets/images/adaptive-icon.png",
+            "backgroundColor": "#ffffff"
+        }
+    },
+    "ios": {
+        "bundler": "metro",
+        "supportsTablet": true,
+        "requireFullScreen": true,
+        "bundleIdentifier": "com.wewillsucceed.together",
+        "buildNumber": "5",
+        "infoPlist": {
+            "ITSAppUsesNonExemptEncryption": false
+        }
+    },
+    "web": {
+        "bundler": "metro",
+        "output": "static",
+        "favicon": "./assets/images/favicon.png",
+        "build": {
+            "babel": {
+            "include": ["react-native-css-interop"]
+            }
+        }
+    },
+    "plugins": [
+        "expo-router",
+        [
+            "expo-splash-screen",
+            {
+                "image": "./assets/images/splash-icon.png",
+                "imageWidth": 300,
+                "resizeMode": "contain",
+                "backgroundColor": "#ffffff"
+            }
+        ],
+        "expo-font"
+    ]
+  }
+}
