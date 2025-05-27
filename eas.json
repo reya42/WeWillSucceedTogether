@@ -11,10 +11,11 @@
         },
         "production": {
             "android": {
-                "buildType": "app-bundle"
+                "buildType": "app-bundle",
+                "developmentClient": false
             },
             "ios": {
-                "simulator": true,
+                "simulator": false,
                 "distribution": "store",
                 "buildConfiguration": "Release"
             }

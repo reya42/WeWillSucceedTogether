@@ -2,11 +2,7 @@ import { Stack } from "expo-router";
 import { useFonts } from 'expo-font';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import "@/global.css"
-
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
+import "@/global.css";
 
 export default function RootLayout() {
     const [fontsLoaded] = useFonts({
