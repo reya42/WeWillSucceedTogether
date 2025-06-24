@@ -23,10 +23,10 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "version": "1.3",
+    "version": "1.7",
     "android": {
       "package": "com.mesutbudak.wewillsucceedtogether",
-      "versionCode": 16,
+      "versionCode": 17,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -36,7 +36,7 @@
       "supportsTablet": true,
       "requireFullScreen": true,
       "bundleIdentifier": "com.wewillsucceed.together",
-      "buildNumber": "6",
+      "buildNumber": "17",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
